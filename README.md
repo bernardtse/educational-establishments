@@ -33,24 +33,24 @@ Users can:
 ## 2. Repository Structure
 
 HTML Files
-- [`index.html`](index.html) - Landing page linking to visualisation pages
-- [`json.html`](json.html) - JSON data visualisation page
-- [`geojson.html`](geojson.html) - GeoJSON data visualisation page
-- [`csv.html`](csv.html) - CSV data visualisation page
+- `index.html` - Landing page linking to visualisation pages
+- `json.html` - JSON data visualisation page
+- `geojson.html` - GeoJSON data visualisation page
+- `csv.html` - CSV data visualisation page
 
 Datasets
-- [`data/educational-establishment.json`](data/educational-establishment.json) - JSON dataset
+- `data/educational-establishment.json` - JSON dataset
 - [`data/educational-establishment.geojson`](data/educational-establishment.geojson) - GeoJSON dataset
-- [`data/educational-establishment.csv`](data/educational-establishment.csv) - CSV dataset
-- [`data/school-code-mappings.json`](data/school-code-mappings.json) - Generated mapping file
+- `data/educational-establishment.csv` - CSV dataset
+- `data/school-code-mappings.json` - Generated mapping file
 
 JS Scripts
-- [`static/js/script-json.js`](static/js/script-json.js) - JSON visualisation script
-- [`static/js/script-geojson.js`](static/js/script-geojson.js) - GeoJSON visualisation script
-- [`static/js/script-csv.js`](static/js/script-csv.js) - CSV visualisation script
+- `static/js/script-json.js` - JSON visualisation script
+- `static/js/script-geojson.js` - GeoJSON visualisation script
+- `static/js/script-csv.js` - CSV visualisation script
 
 CSS Files
-- [`static/css/styles.css`](static/css/styles.css) - Global styles
+- `static/css/styles.css` - Global styles
 
 Jupyter Notebooks
 - [`school-mapping/school-mapping.ipynb`](school-mapping/school-mapping.ipynb) - Notebook for creating code mappings
@@ -137,7 +137,7 @@ The CSV files in this dataset contain coordinates in the **Ordnance Survey Natio
 
 - **CORS Restrictions:**  
   Many UK government data servers block direct requests from web browsers due to Cross-Origin Resource Sharing (CORS) policies.
-  Therefore, copies of the data files ([`educational-establishment.json`](/data/educational-establishment.json), [`educational-establishment.geojson`](data/educational-establishment.geojson), and [`educational-establishment.csv`](data/educational-establishment.csv)) are stored locally in this repository to ensure consistent access.
+  Therefore, copies of the data files (`educational-establishment.json`, [`educational-establishment.geojson`](data/educational-establishment.geojson), and `educational-establishment.csv`) are stored locally in this repository to ensure consistent access.
 
 ---
 
