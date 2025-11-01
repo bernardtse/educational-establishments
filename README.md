@@ -138,6 +138,7 @@ The CSV files in this dataset contain coordinates in the **Ordnance Survey Natio
 - **CORS Restrictions:**  
   Many UK government data servers block direct requests from web browsers due to Cross-Origin Resource Sharing (CORS) policies.
   Therefore, copies of the data files ([`educational-establishment.json`](/data/educational-establishment.json), [`educational-establishment.geojson`](data/educational-establishment.geojson), and [`educational-establishment.csv`](data/educational-establishment.csv)) are stored locally in this repository to ensure consistent access.
+
 ---
 
 ## 6. Screenshots
