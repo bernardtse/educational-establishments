@@ -100,8 +100,9 @@ To run locally:
 
 4. Open your browser
   
-    Visit `http://localhost:8000` (or the port shown in your terminal).
-    Alternatively, view the live deployment at: [https://bernardtse.github.io/educational-establishments](https://bernardtse.github.io/educational-establishments)
+   Visit `http://localhost:8000` (or the port shown in your terminal).
+
+   Alternatively, view the live deployment at: [https://bernardtse.github.io/educational-establishments](https://bernardtse.github.io/educational-establishments)
 
 ---
 
