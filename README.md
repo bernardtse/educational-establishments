@@ -112,19 +112,19 @@ To run locally:
 
 **Planning and Housing Data (England)**  
 - [Educational Establishment Dataset](https://www.planning.data.gov.uk/dataset/educational-establishment)
-  - [JSON](https://files.planning.data.gov.uk/dataset/educational-establishment.json)
-  - [GeoJSON](https://files.planning.data.gov.uk/dataset/educational-establishment.geojson)
-  - [CSV](https://files.planning.data.gov.uk/dataset/educational-establishment.csv)
+  - **JSON**: https://files.planning.data.gov.uk/dataset/educational-establishment.json
+  - **GeoJSON**: https://files.planning.data.gov.uk/dataset/educational-establishment.geojson
+  - **CSV**: https://files.planning.data.gov.uk/dataset/educational-establishment.csv
 
-This dataset includes **latitude and longitude** coordinates, making it suitable for direct mapping in Leaflet.
+  This dataset includes **latitude and longitude** coordinates, making it suitable for direct mapping in Leaflet.
 
 **Official School Data Portal**  
 - [Get Information About Schools](https://get-information-schools.service.gov.uk/Downloads)  
 
-The CSV files in this dataset contain coordinates in the **Ordnance Survey National Grid (OSGB)**, also known as the **British National Grid (BNG)**. Since there is a required conversion between BNG and the Latitude/Longitude system used by Leaflet.js, this dataset is **not** used as the project’s **primary** data source. However, it is still utilised in the school-mapping.ipynb notebook to generate mapping data for code translations.
+  The CSV files in this dataset contain coordinates in the **Ordnance Survey National Grid (OSGB)**, also known as the **British National Grid (BNG)**. Since there is a required conversion between BNG and the Latitude/Longitude system used by Leaflet.js, this dataset is **not** used as the project’s **primary** data source. However, it is still utilised in the school-mapping.ipynb notebook to generate mapping data for code translations.
 
 **Date of Data Retrieval**
-- Educational Establishment Dataset stored in this repository was last retrieved on 01 November 2025 at https://www.planning.data.gov.uk/dataset/educational-establishment.
+- **Educational Establishment** Dataset stored in this repository was last retrieved on 01 November 2025 at https://www.planning.data.gov.uk/dataset/educational-establishment.
 - `data/school-code-mappings.json` was last generated on 1 November 2025 based on the **Get Information about Schools** Dataset retrieved on 31 October 2025 at https://get-information-schools.service.gov.uk/Downloads.
 
 
