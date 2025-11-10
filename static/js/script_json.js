@@ -1,12 +1,11 @@
-// Load CSV dataset and school code mappings, then render educational establishments on the map
+// Load JSON dataset and school code mappings, then render educational establishments on the map
 Promise.all([
-    fetch('data/educational-establishment.csv').then(res => res.text()),
-    fetch('data/school-code-mappings.json').then(res => res.json())
+    fetch('data/educational_establishment.json').then(res => res.json()),
+    fetch('data/school_code_mappings.json').then(res => res.json())
 ])
-.then(([csvText, mappingData]) => {
+.then(([establishmentData, mappingData]) => {
     
-    const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-    const data = parsed.data;
+    const data = establishmentData.entities;
     const mappings = mappingData;
 
     // Initialise map
@@ -184,4 +183,4 @@ Promise.all([
     });
 
 })
-.catch(err => console.error('Failed to load CSV:', err));
+.catch(err => console.error('Failed to load JSON:', err));

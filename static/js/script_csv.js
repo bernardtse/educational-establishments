@@ -1,11 +1,12 @@
-// Load GeoJSON dataset and school code mappings, then render educational establishments on the map
+// Load CSV dataset and school code mappings, then render educational establishments on the map
 Promise.all([
-    fetch('data/educational-establishment.geojson').then(res => res.json()),
-    fetch('data/school-code-mappings.json').then(res => res.json())
+    fetch('data/educational_establishment.csv').then(res => res.text()),
+    fetch('data/school_code_mappings.json').then(res => res.json())
 ])
-.then(([geojsonData, mappingData]) => {
-
-    const data = geojsonData.features;
+.then(([csvText, mappingData]) => {
+    
+    const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+    const data = parsed.data;
     const mappings = mappingData;
 
     // Initialise map
@@ -31,21 +32,20 @@ Promise.all([
     const typeColours = {};
     const markersAll = {}, markersBrum = {};
 
-    data.forEach(feature => {
-        const type = feature.properties['educational-establishment-type'];
+    data.forEach(item => {
+        const type = item['educational-establishment-type'];
         if (!typeColours[type]) typeColours[type] = getRandomColour();
     });
 
     // Create a Leaflet marker
-    function createMarker(feature) {
-        const coords = feature.geometry?.coordinates;
-        if (!coords || coords.length < 2) return null;
+    function createMarker(item) {
+        const match = item.point.match(/POINT\((-?\d+\.?\d*) (-?\d+\.?\d*)\)/);
+        if (!match) return null;
 
-        const lon = coords[0];
-        const lat = coords[1];
-        const props = feature.properties;
-        const typeCode = props['educational-establishment-type'];
-        const statusCode = props['educational-establishment-status'];
+        const lon = parseFloat(match[1]);
+        const lat = parseFloat(match[2]);
+        const typeCode = item['educational-establishment-type'];
+        const statusCode = item['educational-establishment-status'];
         const typeName = mappings['educational-establishment-type'][typeCode] || typeCode;
         const statusName = mappings['educational-establishment-status'][statusCode] || statusCode;
 
@@ -58,38 +58,38 @@ Promise.all([
             fillOpacity: 0.8
         });
 
-        const ladLink = `<a href="https://www.planning.data.gov.uk/prefix/statistical-geography/reference/${props['local-authority-district']}" target="_blank">${props['local-authority-district']}</a>`;
-        const wardLink = `<a href="https://www.planning.data.gov.uk/prefix/statistical-geography/reference/${props['ward']}" target="_blank">${props['ward']}</a>`;
-        const websiteLink = props['website-url'] ? `<a href="${props['website-url']}" target="_blank">${props['website-url']}</a>` : 'N/A';
-        const referenceLink = `<a href="https://www.planning.data.gov.uk/entity/${props.entity}" target="_blank">${props.reference}</a>`;
+        const ladLink = `<a href="https://www.planning.data.gov.uk/prefix/statistical-geography/reference/${item['local-authority-district']}" target="_blank">${item['local-authority-district']}</a>`;
+        const wardLink = `<a href="https://www.planning.data.gov.uk/prefix/statistical-geography/reference/${item['ward']}" target="_blank">${item['ward']}</a>`;
+        const websiteLink = item['website-url'] ? `<a href="${item['website-url']}" target="_blank">${item['website-url']}</a>` : 'N/A';
+        const referenceLink = `<a href="https://www.planning.data.gov.uk/entity/${item.entity}" target="_blank">${item.reference}</a>`;
 
         marker.bindPopup(`
-            <b>${props.name}</b><br>
-            Educational Establishment Number: ${props['educational-establishment-number']}<br>
+            <b>${item.name}</b><br>
+            Educational Establishment Number: ${item['educational-establishment-number']}<br>
             Local Authority District: ${ladLink}<br>
             Ward: ${wardLink}<br>
             Educational Establishment Type: ${typeCode} (${typeName})<br>
-            School Capacity: ${props['school-capacity']}<br>
+            School Capacity: ${item['school-capacity']}<br>
             Educational Establishment Status: ${statusCode} (${statusName})<br>
             Website: ${websiteLink}<br>
             Reference: ${referenceLink}
         `);
 
-        return { marker, typeCode, district: props['local-authority-district'] };
+        return { marker, typeCode };
     }
 
     // Populate clusters
-    data.forEach(feature => {
-        const result = createMarker(feature);
+    data.forEach(item => {
+        const result = createMarker(item);
         if (!result) return;
 
-        const { marker, typeCode, district } = result;
+        const { marker, typeCode } = result;
 
         if (!markersAll[typeCode]) markersAll[typeCode] = [];
         markersAll[typeCode].push(marker);
         allMarkersCluster.addLayer(marker);
 
-        if (district === 'E08000025') {
+        if (item['local-authority-district'] === 'E08000025') {
             if (!markersBrum[typeCode]) markersBrum[typeCode] = [];
             markersBrum[typeCode].push(marker);
             brumMarkersCluster.addLayer(marker);
@@ -184,4 +184,4 @@ Promise.all([
     });
 
 })
-.catch(err => console.error('Failed to load GeoJSON:', err));
+.catch(err => console.error('Failed to load CSV:', err));

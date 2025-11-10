@@ -39,21 +39,21 @@ HTML Files
 - `csv.html` - CSV data visualisation page
 
 Datasets
-- `data/educational-establishment.json` - JSON dataset
-- [`data/educational-establishment.geojson`](data/educational-establishment.geojson) - GeoJSON dataset
-- `data/educational-establishment.csv` - CSV dataset
-- `data/school-code-mappings.json` - Generated mapping file
+- `data/educational_establishment.json` - JSON dataset
+- [`data/educational_establishment.geojson`](data/educational_establishment.geojson) - GeoJSON dataset
+- `data/educational_establishment.csv` - CSV dataset
+- `data/school_code_mappings.json` - Generated mapping file
 
 JS Scripts
-- `static/js/script-json.js` - JSON visualisation script
-- `static/js/script-geojson.js` - GeoJSON visualisation script
-- `static/js/script-csv.js` - CSV visualisation script
+- `static/js/script_json.js` - JSON visualisation script
+- `static/js/script_geojson.js` - GeoJSON visualisation script
+- `static/js/script_csv.js` - CSV visualisation script
 
 CSS Files
 - `static/css/styles.css` - Global styles
 
 Jupyter Notebooks
-- [`school-mapping/school-mapping.ipynb`](school-mapping/school-mapping.ipynb) - Notebook for creating code mappings
+- [`school_mapping/school_mapping.ipynb`](school_mapping/school_mapping.ipynb) - Notebook for creating code mappings
 
 Images
 - [`images/`](images) - Folder containing screenshots
@@ -121,11 +121,11 @@ This dataset includes **latitude and longitude** coordinates, making it suitable
 ### Official School Data Portal
 [Get Information About Schools](https://get-information-schools.service.gov.uk/Downloads)  
 
-The CSV files in this dataset contain coordinates in the **Ordnance Survey National Grid (OSGB)**, also known as the **British National Grid (BNG)**. Since there is a required conversion between BNG and the Latitude/Longitude system used by Leaflet.js, this dataset is **not** used as the project’s **primary** data source. However, it is still utilised in the school-mapping.ipynb notebook to generate mapping data for code translations.
+The CSV files in this dataset contain coordinates in the **Ordnance Survey National Grid (OSGB)**, also known as the **British National Grid (BNG)**. Since there is a required conversion between BNG and the Latitude/Longitude system used by Leaflet.js, this dataset is **not** used as the project’s **primary** data source. However, it is still utilised in the school_mapping.ipynb notebook to generate mapping data for code translations.
 
 ### Date of Data Retrieval
 - **Educational Establishment** Dataset stored in this repository was last retrieved on 01 November 2025 at https://www.planning.data.gov.uk/dataset/educational-establishment.
-- `data/school-code-mappings.json` was last generated on 1 November 2025 based on the **Get Information about Schools** Dataset retrieved on 31 October 2025 at https://get-information-schools.service.gov.uk/Downloads.
+- `data/school_code_mappings.json` was last generated on 1 November 2025 based on the **Get Information about Schools** Dataset retrieved on 31 October 2025 at https://get-information-schools.service.gov.uk/Downloads.
 
 
 ---
@@ -138,11 +138,11 @@ The CSV files in this dataset contain coordinates in the **Ordnance Survey Natio
   - **CSV** – Parsed using **PapaParse** and structured to match the JSON format after parsing.
 
 - Several fields (e.g., `educational-establishment-type`, `educational-establishment-status`) use numeric codes.  
-  A [**Jupyter Notebook**](school-mapping/school-mapping.ipynb) is provided to generate a mapping file (`school-code-mappings.json`) translating these codes into meaningful text for display.  
+  A [**Jupyter Notebook**](school_mapping/school_mapping.ipynb) is provided to generate a mapping file (`school_code_mappings.json`) translating these codes into meaningful text for display.  
 
 - **CORS Restrictions:**  
   Many UK government data servers block direct requests from web browsers due to Cross-Origin Resource Sharing (CORS) policies.
-  Therefore, copies of the data files (`educational-establishment.json`, [`educational-establishment.geojson`](data/educational-establishment.geojson), and `educational-establishment.csv`) are stored locally in this repository to ensure consistent access.
+  Therefore, copies of the data files (`educational_establishment.json`, [`educational_establishment.geojson`](data/educational_establishment.geojson), and `educational_establishment.csv`) are stored locally in this repository to ensure consistent access.
 
 ---
 
