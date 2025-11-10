@@ -1,8 +1,8 @@
 # Mac .DS_Store
 .DS_Store
 
-# school-mapping
-school-mapping/*.csv
+# school_mapping
+school_mapping/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
