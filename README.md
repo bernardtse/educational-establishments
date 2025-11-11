@@ -169,6 +169,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 9. Author
 
-- Developed and maintained by [Bernard Tse](https://github.com/bernardtse), with support from OpenAI’s ChatGPT for code refinement, optimisation, and debugging assistance.
+- Developed and maintained by [Bernard Tse](https://github.com/bernardtse), with support from [OpenAI](https://openai.com)’s ChatGPT for code refinement, optimisation, and debugging assistance.
 
 - Inspired in part by the [Garden Stakes Project](https://github.com/NidaB-C/garden_stakes) by [NidaB-C](https://github.com/NidaB-C/).
