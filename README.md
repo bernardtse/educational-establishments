@@ -5,15 +5,15 @@ An interactive web project visualising educational establishments across England
 ---
 
 ## Contents
-1. [Overview](#1-overview)  
-2. [Repository Structure](#2-repository-structure)  
-3. [Features & Technologies](#3-features--technologies)  
-4. [Deployment](#4-deployment)  
-5. [Data Source & Processing](#5-data-source--processing)  
-6. [Screenshots](#6-screenshots)  
-7. [Disclaimer](#7-disclaimer)  
-8. [License](#8-license)  
-9. [Author](#9-author)  
+1. [Overview](#1-overview)
+2. [Repository Structure](#2-repository-structure)
+3. [Features & Technologies](#3-features--technologies)
+4. [Deployment](#4-deployment)
+5. [Data Source & Processing](#5-data-source--processing)
+6. [Screenshots](#6-screenshots)
+7. [Disclaimer](#7-disclaimer)
+8. [License](#8-license)
+9. [Author](#9-author)
 
 ---
 
