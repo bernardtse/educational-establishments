@@ -56,7 +56,7 @@ Jupyter Notebooks
 - [`school_mapping/school_mapping.ipynb`](school_mapping/school_mapping.ipynb) - Notebook for creating code mappings
 
 Images
-- [`images/`](images) - Folder containing screenshots
+- [`images/`](images/) - Folder containing screenshots
 
 ---
 
